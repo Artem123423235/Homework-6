@@ -1,0 +1,32 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "title": "Смартфон",
+        "description": "Современный смартфон",
+        "price": "29999.00",
+        "category": 1
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "title": "Ноутбук",
+        "description": "Мощный ноутбук",
+        "price": "54999.00",
+        "category": 1
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "title": "Наушники",
+        "description": "Беспроводные наушники",
+        "price": "4999.00",
+        "category": 2
+    }
+}
+]
