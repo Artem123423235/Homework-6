@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ product.title }}</h1>
+<p>{{ product.description }}</p>
+<p>Цена: {{ product.price }}</p>
+
+{% if user == product.owner %}
+    <a href="{% url 'catalog:product_update' product.pk %}">Редактировать</a>
+    <a href="{% url 'catalog:product_delete' product.pk %}">Удалить</a>
+{% endif %}
+
+{% if perms.catalog.can_unpublish_product %}
+    <a href="{% url 'catalog:unpublish_product' product.pk %}">Отменить публикацию</a>
+{% endif %}
+
+<a href="{% url 'catalog:home' %}">На главную</a>
+{% endblock %}

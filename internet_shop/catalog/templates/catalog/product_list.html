@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Список товаров</h2>
+{% if product_list %}
+    <ul>
+    {% for product in product_list %}
+        <li>
+            <strong>{{ product.title }}</strong> — {{ product.price }} руб.
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Товаров пока нет.</p>
+{% endif %}
+{% endblock %}
