@@ -1,0 +1,22 @@
+{% extends 'catalog/base.html' %}
+{% block title %}Блог{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Блог</h1>
+    <a href="{% url 'blog:post_create' %}" class="btn btn-primary mb-3">Новая запись</a>
+    {% for post in posts %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content|truncatechars:200 }}</p>
+                <p><small>Просмотров: {{ post.views_count }} | Дата: {{ post.created_at|date:"d.m.Y" }}</small></p>
+                <a href="{% url 'blog:post_detail' post.pk %}" class="btn btn-info">Читать</a>
+                <a href="{% url 'blog:post_update' post.pk %}" class="btn btn-warning">Редактировать</a>
+                <a href="{% url 'blog:post_delete' post.pk %}" class="btn btn-danger">Удалить</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>Нет записей в блоге.</p>
+    {% endfor %}
+</div>
+{% endblock %}
