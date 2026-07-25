@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Товары в категории «{{ category.name }}»</h2>
+{% if product_list %}
+    <ul>
+    {% for product in product_list %}
+        <li>
+            <a href="{% url 'product_detail' product.pk %}">{{ product.title }}</a>
+            — {{ product.price }} руб.
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>В этой категории нет товаров.</p>
+{% endif %}
+{% endblock %}

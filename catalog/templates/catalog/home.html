@@ -1,0 +1,26 @@
+{% extends 'catalog/base.html' %}
+{% block title %}Главная - Интернет-магазин{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Список товаров</h1>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">
+                        {{ product.description|truncatechars:100 }}
+                    </p>
+                    <p><strong>{{ product.price }} руб.</strong></p>
+                    <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Товаров пока нет.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

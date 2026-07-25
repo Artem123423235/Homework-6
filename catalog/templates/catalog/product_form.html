@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Редактировать продукт{% else %}Создать продукт{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'catalog:home' %}">Отмена</a>
+{% endblock %}
